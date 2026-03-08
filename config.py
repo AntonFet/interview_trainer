@@ -7,6 +7,8 @@ CHANNELS = 1
 THRESHOLD = 300
 SILENCE_LIMIT = 2.0
 
+INTERVIEW_MODE = "screening"
+
 WHISPER_MODEL = "base"
 LLM_MODEL = "mistral:7b-instruct"
 

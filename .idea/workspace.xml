@@ -1,17 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="c958b9b2-6bd8-4bb1-8190-5160d711a3d5" name="Changes" comment="MVP for my pet project (prep for tech interview in english)">
-      <change afterPath="$PROJECT_DIR$/audio/player.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/audio/recorder.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/config.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/llm/interview_agent.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/stt/whisper_service.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tts/tts_service.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/utils/audio_utils.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/utils/logger.py" afterDir="false" />
+    <list default="true" id="c958b9b2-6bd8-4bb1-8190-5160d711a3d5" name="Changes" comment="Доработки кода, общий код разделен на классы, доработан промпт">
+      <change afterPath="$PROJECT_DIR$/interview/interview_modes.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/interview_trainer.py" beforeDir="false" afterPath="$PROJECT_DIR$/interview_trainer.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config.py" beforeDir="false" afterPath="$PROJECT_DIR$/config.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/llm/interview_agent.py" beforeDir="false" afterPath="$PROJECT_DIR$/llm/interview_agent.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -95,7 +89,15 @@
       <option name="project" value="LOCAL" />
       <updated>1772650382454</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Доработки кода, общий код разделен на классы, доработан промпт">
+      <option name="closed" value="true" />
+      <created>1772986375742</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1772986375742</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -121,6 +123,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="MVP for my pet project (prep for tech interview in english)" />
-    <option name="LAST_COMMIT_MESSAGE" value="MVP for my pet project (prep for tech interview in english)" />
+    <MESSAGE value="Доработки кода, общий код разделен на классы, доработан промпт" />
+    <option name="LAST_COMMIT_MESSAGE" value="Доработки кода, общий код разделен на классы, доработан промпт" />
   </component>
 </project>

@@ -1,11 +1,16 @@
 import time
 import logging
 
+from utils.logger import setup_logger
+setup_logger()
+
 from audio.recorder import AudioRecorder
 from audio.player import AudioPlayer
 from stt.whisper_service import WhisperService
 from tts.tts_service import TTSService
 from llm.interview_agent import InterviewAgent
+from interview.interview_modes import InterviewMode
+from config import INTERVIEW_MODE
 
 logger = logging.getLogger(__name__)
 
@@ -17,7 +22,8 @@ def main():
 
     stt = WhisperService()
     tts = TTSService()
-    agent = InterviewAgent()
+    mode = input("Choose interview mode (screening/technical): ")
+    agent = InterviewAgent(mode=mode)
 
     stage = "QUESTION"
 
