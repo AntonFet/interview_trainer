@@ -1,15 +1,15 @@
-import pyaudio
-import wave
-import time
 import math
 import struct
-import numpy as np
-import sounddevice as sd
-from faster_whisper import WhisperModel
-import ollama
-from TTS.api import TTS
+import time
+import wave
 
-# --- Настройки ---
+import ollama
+import pyaudio
+import sounddevice as sd
+from TTS.api import TTS
+from faster_whisper import WhisperModel
+
+# --- Settings ---
 WAKE_WORD = "start"
 CHUNK = 1024
 RATE = 16000
@@ -18,13 +18,13 @@ CHANNELS = 1
 THRESHOLD = 300
 SILENCE_LIMIT = 2.0
 
-# --- Инициализация ---
-# 1. Модель распознавания речи (Whisper)
-print("Загрузка модели Whisper...")
+# --- Initialization ---
+# 1. The speech recognition model (Whisper)
+print("Loading the model Whisper...")
 whisper_model = WhisperModel("base", device="cpu", compute_type="int8")
 
-# 2. Модель синтеза речи Coqui TTS (многоголосая VCTK)
-print("Загрузка Coqui TTS (VCTK)...")
+# 2. The speech synthesis model Coqui TTS (polyphonic VCTK)
+print("Loading Coqui TTS (VCTK)...")
 #tts = TTS(
 #    model_name="tts_models/en/vctk/vits",
 #    progress_bar=False,
@@ -58,7 +58,7 @@ messages = [
 Ты — технический интервьюер для позиции Senior QA Engineer.
 Твоя задача — проводить структурированное собеседование. Задавай только один вопрос за раз.
 После каждого ответа кандидата давай краткую обратную связь (на английском) по следующим пунктам:
-- Что было хорошо (What was good)
+- Что было хорошо (What was good) 
 - Что можно улучшить (What could be improved)
 - Затем задавай следующий вопрос.
 

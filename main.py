@@ -1,16 +1,81 @@
-# This is a sample Python script.
+import time
+import logging
 
-# Press ⌃R to execute it or replace it with your code.
-# Press Double ⇧ to search everywhere for classes, files, tool windows, actions, and settings.
+from audio.recorder import AudioRecorder
+from audio.player import AudioPlayer
+from stt.whisper_service import WhisperService
+from tts.tts_service import TTSService
+from llm.interview_agent import InterviewAgent
+
+logger = logging.getLogger(__name__)
 
 
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press ⌘F8 to toggle the breakpoint.
+def main():
+
+    recorder = AudioRecorder()
+    player = AudioPlayer()
+
+    stt = WhisperService()
+    tts = TTSService()
+    agent = InterviewAgent()
+
+    stage = "QUESTION"
+
+    print("🚀 QA Interview AI started")
+
+    while True:
+
+        # ----------------
+        # 1. AI задает вопрос
+        # ----------------
+        if stage == "QUESTION":
+
+            question = agent.generate_question()
+
+            print("AI:", question)
+
+            wav = tts.synthesize(question)
+
+            player.play(wav)
+
+            stage = "WAIT_USER"
+
+        # ----------------
+        # 2. Ждем ответ пользователя
+        # ----------------
+        elif stage == "WAIT_USER":
+
+            audio_file = recorder.record("response.wav")
+
+            user_text = stt.transcribe(audio_file)
+
+            if not user_text.strip():
+
+                print("Didn't hear anything")
+
+                continue
+
+            print("User:", user_text)
+
+            stage = "FEEDBACK"
+
+        # ----------------
+        # 3. AI дает feedback
+        # ----------------
+        elif stage == "FEEDBACK":
+
+            feedback = agent.generate_feedback(user_text)
+
+            print("AI:", feedback)
+
+            wav = tts.synthesize(feedback)
+
+            player.play(wav)
+
+            stage = "QUESTION"
+
+        time.sleep(1)
 
 
-# Press the green button in the gutter to run the script.
-if __name__ == '__main__':
-    print_hi('PyCharm')
-
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
+if __name__ == "__main__":
+    main()
